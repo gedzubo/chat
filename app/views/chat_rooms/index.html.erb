@@ -8,5 +8,6 @@
     <% @chat_rooms.each do |chat_room| %>
       <%= render chat_room  %>
     <% end %>
+    <%= paginate @chat_rooms %>
   </div>
 </div>

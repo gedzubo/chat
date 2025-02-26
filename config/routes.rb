@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :chat_rooms, only: [ :index, :new, :create, :show ] do
     resources :messages, only: [ :create ]
+    member do
+      post :join
+      delete :leave
+    end
   end
   devise_for :users
   post "/add_user_name" => "users#add_name", as: :add_user_name

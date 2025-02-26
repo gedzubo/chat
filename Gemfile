@@ -26,6 +26,9 @@ gem "solid_cache"
 gem "solid_queue"
 gem "solid_cable"
 
+# Pagination [https://github.com/kaminari/kaminari]
+gem "kaminari"
+
 # Authentication solution [https://github.com/heartcombo/devise]
 gem "devise"
 

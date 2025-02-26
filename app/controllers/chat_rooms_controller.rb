@@ -1,8 +1,9 @@
 class ChatRoomsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_chat_room, only: [ :join, :leave ]
   # Add pagination
   def index
-    @chat_rooms = ChatRoom.all
+    @chat_rooms = ChatRoom.includes(:users).order("created_at DESC").page params[:page]
   end
 
   def new
@@ -26,7 +27,23 @@ class ChatRoomsController < ApplicationController
     @chat_room = ChatRoom.includes(:messages).find_by(id: params[:id])
   end
 
+  def join
+    @chat_room.chat_room_members.create(user: current_user)
+
+    redirect_to chat_room_path(@chat_room)
+  end
+
+  def leave
+    @chat_room.chat_room_members.where(user: current_user).destroy_all
+
+    redirect_to chat_rooms_path
+  end
+
   private
+
+  def set_chat_room
+    @chat_room = ChatRoom.find(params[:id])
+  end
 
   def chat_room_params
     params.require(:chat_room).permit(:name)
