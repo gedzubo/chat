@@ -26,6 +26,9 @@ gem "solid_cache"
 gem "solid_queue"
 gem "solid_cable"
 
+# Authentication solution [https://github.com/heartcombo/devise]
+gem "devise"
+
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
@@ -47,6 +50,20 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  # Testing framework [https://github.com/rspec/rspec-rails]
+  gem "rspec-rails", "~> 7.0.0"
+
+  # Used to create test fixtures [https://github.com/thoughtbot/factory_bot_rails]
+  gem "factory_bot_rails"
+
+  # Provides fake data [https://github.com/faker-ruby/faker]
+  gem "faker"
+end
+
+group :test do
+  # Acceptance testing framework [https://github.com/teamcapybara/capybara]
+  gem "capybara"
 end
 
 group :development do
