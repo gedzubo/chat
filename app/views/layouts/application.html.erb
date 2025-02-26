@@ -23,10 +23,20 @@
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <% if user_signed_in? %>
+    <header class="flex justify-between items-center px-6 py-4 bg-yellow-50">
+        <div class="flex space-x-4">
+          <%= link_to "Home", root_path %>
+        </div>
+        <div>
+          <%= link_to "Log Out", destroy_user_session_path, data: { turbo_method: :delete } %>
+        </div>
+      </header>
+    <% end %>
+    <main class="container mx-auto mt-8 px-5 flex flex-col items-center">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-      
+
       <%= yield %>
     </main>
   </body>
