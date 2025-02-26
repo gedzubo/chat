@@ -10,14 +10,24 @@ class ChatRoomsController < ApplicationController
 
   def create
     @chat_room = ChatRoom.new(chat_room_params)
-    if @chat_room.save
-      redirect_to chat_rooms_path
-    else
-      render :new
+    @chat_room.user = current_user
+
+    respond_to do |format|
+      if @chat_room.save
+        format.turbo_stream
+      else
+        format.html { render :new }
+      end
     end
   end
 
   def show
     @chat_room = ChatRoom.includes(:messages).find_by(id: params[:id])
+  end
+
+  private
+
+  def chat_room_params
+    params.require(:chat_room).permit(:name)
   end
 end

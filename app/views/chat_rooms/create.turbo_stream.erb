@@ -1,0 +1,2 @@
+<%= turbo_stream.append "chat_rooms", @chat_room %>
+<%= turbo_stream.replace "new_chat_room", partial: "form", locals: { chat_room: ChatRoom.new } %>
