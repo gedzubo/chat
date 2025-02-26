@@ -6,9 +6,7 @@
   <div id="chat_rooms">
     <h2>Chat Rooms:</h2>
     <% @chat_rooms.each do |chat_room| %>
-      <%= turbo_frame_tag dom_id(chat_room) do %>
-        <%= render chat_room  %>
-      <% end %>
+      <%= render chat_room  %>
     <% end %>
   </div>
 </div>

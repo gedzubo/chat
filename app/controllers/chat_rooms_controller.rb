@@ -1,5 +1,6 @@
 class ChatRoomsController < ApplicationController
   before_action :authenticate_user!
+  # Add pagination
   def index
     @chat_rooms = ChatRoom.all
   end

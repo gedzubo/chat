@@ -3,7 +3,7 @@
     <h3><%= chat_room.name %></h3>
   </div>
   <div>
-    <a href="#">View</a>
+    <%= link_to "View", chat_room_path(chat_room) %>
     <a href="#">Join</a>
     <a href="#">Leave</a>
   </div>
