@@ -8,7 +8,8 @@
       <%= link_to "Leave", 
                   leave_chat_room_path(chat_room), 
                   data: { :confirm => 'Are you sure you want to leave the chat room?'}, 
-                  method: :delete %>
+                  method: :delete,
+                  data: { turbo_method: :delete } %>
     <% else %>
       <%= link_to "Join", 
                   join_chat_room_path(chat_room), 
