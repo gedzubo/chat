@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :messages
   resources :chat_rooms
   devise_for :users
+  post "/add_user_name" => "users#add_name", as: :add_user_name
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

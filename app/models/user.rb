@@ -7,4 +7,8 @@ class User < ApplicationRecord
   has_many :chat_room_members, dependent: :destroy
   has_many :chat_rooms, through: :chat_room_members
   has_many :messages, dependent: :destroy
+
+  def display_name
+    "#{name} (##{id})" if name.present?
+  end
 end

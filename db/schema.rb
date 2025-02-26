@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_26_112356) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_26_133358) do
+  create_table "chat_room_members", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "chat_room_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_room_id"], name: "index_chat_room_members_on_chat_room_id"
+    t.index ["user_id"], name: "index_chat_room_members_on_user_id"
+  end
+
   create_table "chat_rooms", force: :cascade do |t|
     t.string "name"
     t.integer "user_id", null: false
@@ -32,7 +41,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_26_112356) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "name", default: "", null: false
+    t.string "name"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -42,6 +51,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_26_112356) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "chat_room_members", "chat_rooms"
+  add_foreign_key "chat_room_members", "users"
   add_foreign_key "chat_rooms", "users"
   add_foreign_key "messages", "chat_rooms"
   add_foreign_key "messages", "users"
