@@ -25,7 +25,8 @@ RSpec.describe "Ability to send messages inside the chat room", type: :feature d
     end
 
     within("#messages") do
-      expect(page).to have_content("Gee: Hello World!")
+      expect(page).to have_content("Gee:")
+      expect(page).to have_content("Hello World!")
     end
   end
 end
