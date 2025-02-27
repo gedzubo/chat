@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :message do
-    body { "Hello World" }
+    body { Faker::Lorem.sentence }
     user
     chat_room
   end

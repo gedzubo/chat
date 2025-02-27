@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :chat_room do
-    name { "Politics" }
+    name { Faker::Hobby.activity }
   end
 end
