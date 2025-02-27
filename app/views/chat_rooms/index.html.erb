@@ -1,9 +1,7 @@
-<div class="flex flex-col space-y-5">
-  <div>
-    <h2>New Chat Room</h2>
-    <%= turbo_frame_tag id = "new_chat_room", src: new_chat_room_path %>
-  </div>
-  <div id="chat_rooms">
+<div class="flex flex-col space-y-6">
+  <h2 class="block">New Chat Room</h2>
+  <%= turbo_frame_tag id = "new_chat_room", src: new_chat_room_path %>
+  <div id="chat_rooms" class="mt-5">
     <h2>Chat Rooms:</h2>
     <% @chat_rooms.each do |chat_room| %>
       <%= render chat_room  %>

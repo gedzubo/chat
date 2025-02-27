@@ -1,5 +1,5 @@
 <%= turbo_frame_tag id = "new_chat_room", target: "_top" do %>
-  <%= form_with(model: chat_room, class: "contents", id: "new_chat_room_form") do |form| %>
+  <%= form_with(model: chat_room, class: "grid grid-cols-5 gap-4 items-center", id: "new_chat_room_form") do |form| %>
     <% if chat_room.errors.any? %>
       <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
         <h2><%= pluralize(chat_room.errors.count, "error") %> prohibited this chat room from being saved:</h2>
@@ -12,12 +12,12 @@
       </div>
     <% end %>
 
-    <div class="my-5">
-      <%= form.text_field :name, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+    <div class="col-span-4">
+      <%= form.text_field :name, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 w-full" %>
     </div>
 
-    <div class="inline">
-      <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    <div class="col-span-1">
+      <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white font-medium cursor-pointer" %>
     </div>
   <% end %>
 <% end %>

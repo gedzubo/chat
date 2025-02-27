@@ -1,18 +1,20 @@
-<div id="<%= dom_id chat_room %>" class="flex justify-between space-x-6 p-4 bg-white rounded-lg shadow-lg my-2">
+<div id="<%= dom_id chat_room %>" class="flex justify-between space-x-6 p-4 bg-yellow-100 rounded-lg shadow-lg my-2">
   <div>
     <h3><%= chat_room.name %></h3>
   </div>
   <div>
     <% if chat_room.member?(current_user) %>
-      <%= link_to "View", chat_room_path(chat_room) %>
+      <%= link_to "View", chat_room_path(chat_room), class: "bg-blue-500 text-white p-2" %>
       <%= link_to "Leave", 
                   leave_chat_room_path(chat_room), 
+                  class: "bg-red-500 text-white p-2",
                   data: { :confirm => 'Are you sure you want to leave the chat room?'}, 
                   method: :delete,
                   data: { turbo_method: :delete } %>
     <% else %>
       <%= link_to "Join", 
-                  join_chat_room_path(chat_room), 
+                  join_chat_room_path(chat_room),
+                  class: "bg-green-500 text-white p-2",
                   method: :post, 
                   data: { turbo_method: :post } %>
     <% end %>

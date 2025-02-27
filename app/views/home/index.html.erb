@@ -1,8 +1,7 @@
-<div class="flex flex-col space-y-4">
-  <div id="intro">
+<div class="flex flex-col space-y-6">
+  <div id="intro" class="flex flex-col space-y-4 items-center">
     <% if current_user.name.present? %>
       <h1 class="text-lg">Welcome <%= current_user.display_name %></h1>
-      <hr class="my-2">
     <% else %>
       <p>Please enter your name:</p>
       <%= form_with url: add_user_name_path, method: :post do |form| %>
@@ -11,9 +10,9 @@
       <% end %>
     <% end %>
   </div>
-  <div id="my_chat_rooms">
+  <div id="my_chat_rooms" class="flex flex-col space-y-4 min-w-xl">
     <% if current_user.chat_rooms.present? %>
-      <h2>My Chat Rooms:</h2>
+      <h2 class="block">My Chat Rooms:</h2>
       <% current_user.chat_rooms.each do |chat_room| %>
         <%= render chat_room %>
       <% end %>
