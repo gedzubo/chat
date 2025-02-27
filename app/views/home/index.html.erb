@@ -11,9 +11,11 @@
     <% end %>
   </div>
   <div id="my_chat_rooms">
-    <h2>My Chat Rooms:</h2>
-    <% current_user.chat_rooms.each do |chat_room| %>
-      <%= render chat_room %>
+    <% if current_user.chat_rooms.present? %>
+      <h2>My Chat Rooms:</h2>
+      <% current_user.chat_rooms.each do |chat_room| %>
+        <%= render chat_room %>
+      <% end %>
     <% end %>
   </div>
 </div>

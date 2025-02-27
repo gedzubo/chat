@@ -1,5 +1,5 @@
 <%= turbo_frame_tag id = "new_chat_room", target: "_top" do %>
-  <%= form_with(model: chat_room, class: "contents") do |form| %>
+  <%= form_with(model: chat_room, class: "contents", id: "new_chat_room_form") do |form| %>
     <% if chat_room.errors.any? %>
       <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
         <h2><%= pluralize(chat_room.errors.count, "error") %> prohibited this chat room from being saved:</h2>
