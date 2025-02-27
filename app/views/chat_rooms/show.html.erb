@@ -1,16 +1,17 @@
 <h3 class="block">
   Chat room: <%= @chat_room.name %>
+  <hr class="my-2">
 </h3>
 <div id="new_message" class="flex flex-col space-y-3 mt-5">
   <%= form_with model: [@chat_room, Message.new], data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } do |form| %>
     <div class="my-5">
-      <%= form.text_field :body, 
+      <%= form.text_area :body, 
         class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full",
         placeholder: "Enter your message" 
       %>
     </div>
 
-    <div class="inline">
+    <div>
       <%= form.submit "Send", class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
     </div>
   <% end %>
