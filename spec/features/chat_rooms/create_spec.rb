@@ -2,11 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Ability to create a new chat room", type: :feature do
   before do
-    visit root_path
-
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_on "Log in"
+    log_in(user)
   end
 
   let(:user) { create(:user) }
