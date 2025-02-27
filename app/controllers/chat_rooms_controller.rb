@@ -24,7 +24,7 @@ class ChatRoomsController < ApplicationController
   end
 
   def show
-    @chat_room = ChatRoom.includes(:messages).find_by(id: params[:id])
+    @chat_room = current_user.chat_rooms.includes(:messages).find_by(id: params[:id])
   end
 
   def join
