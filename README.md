@@ -1,9 +1,11 @@
 # Basic chat application example
 
-## Using
+## Technologies / libraries used:
 
-- DB: sqlite
-- Styling: tailwind
+- Sqlite
+- Tailwind
 - Hotwire
-- Action cable
+- Stimulus
+- Action cable (for realtime messaging)
 - Devise
+- Rspec / Capybara
