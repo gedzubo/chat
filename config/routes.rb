@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :chat_rooms, only: [ :index, :new, :create, :show ] do
     resources :messages, only: [ :create ]
     member do
@@ -6,7 +7,6 @@ Rails.application.routes.draw do
       delete :leave
     end
   end
-  devise_for :users
   post "/add_user_name" => "users#add_name", as: :add_user_name
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
