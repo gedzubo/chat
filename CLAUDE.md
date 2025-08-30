@@ -10,7 +10,7 @@ This is a Rails 8 chat application built with modern web technologies for real-t
 
 - **Framework**: Rails 8.0.1
 - **Database**: SQLite3
-- **Frontend**: Hotwire (Turbo + Stimulus), Tailwind CSS with DaisyUI
+- **Frontend**: Hotwire (Turbo + Stimulus), Tailwind CSS
 - **Authentication**: Devise
 - **Real-time**: Action Cable for WebSocket messaging
 - **Asset Pipeline**: Propshaft with importmap-rails
@@ -112,7 +112,6 @@ The application uses Action Cable for real-time messaging. Messages are broadcas
 
 ### Styling Architecture
 - **Primary**: Tailwind CSS 4.x for utility-first styling
-- **Components**: DaisyUI for pre-built component classes
 - **Responsive**: Mobile-first responsive design
 - **Development**: Live CSS recompilation via `tailwindcss:watch`
 
